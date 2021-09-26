@@ -1,5 +1,6 @@
 <template>
   <div class="app-login">
+    <Alert v-if="error.length > 0" type="error">{{ error }}</Alert>
     <!-- <div class="logo"><img src="@/assets/images/logo.png" alt="" /></div> -->
     <div class="main">
       <h4 class="title">Sign In</h4>
@@ -39,12 +40,18 @@ export default {
   data() {
     return {
       username: "",
-      password: ""
+      password: "",
+      error: ""
     };
   },
   methods: {
     handleLogin(username, password) {
       console.log(username + " " + password);
+      if (password == "UltrahackHomeRobot") {
+        this.$emit("login", true);
+      } else {
+        this.error = "invalid username or password";
+      }
       //   login({ username, password })
       //     .then((response) => {
       //       console.log(response);
@@ -56,7 +63,6 @@ export default {
       //     .catch((err) => {
       //       console.log(err);
       //     });
-      this.$emit("login", true);
     }
   }
 };

@@ -17,7 +17,7 @@ export default {
   data: () => {
     return {
       logged: false,
-      webcam: "http://146.115.89.169:8080",
+      webcam: "http://146.115.89.169:8081",
       noticeHandler: null
     };
   },
@@ -91,7 +91,7 @@ export default {
 
 .webcam {
   position: relative;
-  width: 100%;
+  width: 80%;
   height: auto;
 }
 .login {
